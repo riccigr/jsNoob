@@ -18,8 +18,6 @@ class NegociacaoController{
           new NegociacoesView($('#negociacoesView')),
           'adiciona','esvazia'
       );
-
-      this._negociacoesView.atualiza(this._listaNegociacoes);
   }
 
   adiciona(event){
