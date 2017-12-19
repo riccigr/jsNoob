@@ -36,16 +36,13 @@ class NegociacaoController{
 
   importaNegociacoes(){
       let negociacaoService = new NegociacaoService();
+      let promise = negociacaoService.obterNegociacoesSemana();
 
-      negociacaoService.obterNegociacoesSemana( (err, negociacoes) => {
-          if(err){
-              this._mensagem.texto = err;
-              return;
-          }
-
+      promise.then(negociacoes => {
           negociacoes.forEach(negociacao => this._listaNegociacoes.adiciona(negociacao));
-          this._mensagem.texto = 'Negociações foram importadas com sucesso!';
-      });
+          this._mensagem.texto = 'Negociações da semana foram importadas com sucesso!';
+      }).catch(err => this._mensagem.texto = err);
+
   }
 
   _criaNegociacao(){
