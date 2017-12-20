@@ -8,12 +8,20 @@ class ListaNegociacoes {
       this._negociacoes.push(negociacao);
   }
 
-  get negociacoes(){
-      return [].concat(this._negociacoes);
-  }
-
   esvazia(){
       return this._negociacoes = [];
+  }
+
+  ordena(criterio){
+      this._negociacoes.sort(criterio);
+  }
+
+  inverteOrdem(){
+      this._negociacoes.reverse();
+  }
+
+  get negociacoes(){
+      return [].concat(this._negociacoes);
   }
 
   get volumeTotal(){
